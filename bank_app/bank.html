@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank_App</title>
+</head>
+<body>
+    <h1>Go to Browser's Console</h1>
+    <script>
+        class BankAccount {
+    constructor(accountNumber, ownerName, initialBalance) {
+        this.accountNumber = accountNumber;
+        this.ownerName = ownerName;
+        this.balance = initialBalance;
+    }
+
+    
+    deposit(amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            console.log(`${this.ownerName} deposited $${amount}. Current balance is: $${this.balance}`);
+        } else {
+            console.log("Invalid deposit amount.");
+        }
+    }
+    withdraw(amount) {
+        if (amount > 0 && amount <= this.balance) {
+            this.balance -= amount;
+            console.log(`${this.ownerName} withdrew $${amount}. Current balance is: $${this.balance}`);
+        } else {
+            console.log("Insufficient funds.");
+        }
+    }
+    getBalance() {
+        console.log(`${this.ownerName}'s current balance: $${this.balance}`);
+    }
+    displayAccountInfo() {
+        console.log(`Account Number: ${this.accountNumber}`);
+        console.log(`Owner Name: ${this.ownerName}`);
+        console.log(`Balance: $${this.balance}`);
+    }
+}
+// Create two Bank Account
+const account1 = new BankAccount(1001, "Nayan", 700);
+const account2 = new BankAccount(1002, "Noor", 1000);
+// Display Account Info
+console.log("Nayan");
+account1.getBalance();
+account1.deposit(200);
+account1.withdraw(100);
+
+account1.displayAccountInfo();
+console.log("-----------------------------------");
+console.log("-----------------------------------");
+console.log("-----------------------------------");
+console.log("Noor");
+account2.getBalance();
+account2.deposit(500);
+account2.withdraw(300);
+
+account2.displayAccountInfo();
+    </script>
+</body>
+</html>
+
